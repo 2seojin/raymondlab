@@ -8,19 +8,24 @@
     <!--파비콘-->
     <link href="img/favicon.png" type="image/x-icon" rel="shortcut icon">
     <!--외부 css연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link href="css/main.css" type="text/css" rel="stylesheet">
-    <!--슬라이드-->
-    <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css">
     <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/jquery.bxslider.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
     <script>
-        $(function(){
-            $('.bxslider').bxSlider({
-                mode: 'fade',
-                auto:true
+        $(document).ready(function(){
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 4,
+                spaceBetween: 70,
+                loop:true,
+                autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                },
             });
         });
-    </script>
+      </script>
 </head>
 <body>
     <div class="wrap">
@@ -83,18 +88,13 @@
         </header>
         <section class="s1">
             <!--메인비주얼의 이미지 영역(3개)-->
-            <div class="bxslider">
-                <div><img src="img/main01.png" title="큐어코드"></div>
-                <div><img src="img/main02.png" title="아쿠아 퀀칭 젤"></div>
-                <div><img src="img/main03.png" title="뉴로마이드"></div>
-            </div>
-            <!--메인비주얼 이미지 <div class="photo">
+            <div class="photo">
                 <ul>
                     <li><img src="img/main01.png" alt="큐어코드"></li>
                     <li><img src="img/main02.png" alt="아쿠아 퀀칭 젤"></li>
                     <li><img src="img/main03.png" alt="뉴로마이드"></li>
                 </ul>
-            </div> -->
+            </div>
             <!--화면 왼쪽의 세로 바-->
             <!-- <div class="bar">
                 <h3>DR.RAYMOND LAB.</h3>
@@ -109,7 +109,7 @@
                 <div class="number">
                     <div class="num">
                         <ul>
-                            <li><a href="#">01</a></li>
+                            <li><a href="#" class="active">01</a></li>
                             <li><a href="#">02</a></li>
                             <li><a href="#">03</a></li>
                         </ul>
@@ -117,7 +117,6 @@
                     <div class="btn">
                         <hr>
                         <a href="#">
-                            <img src="img/play.png" alt="play_btn">
                         </a>
 
                     </div>
@@ -170,17 +169,17 @@
                     <div class="product_title">
                         <div class="product_des">
                             <ul>
-                                <li>
+                                <li class="d1">
                                     <h3><span>01</span>수딩 릴리프 젤 80ml</h3>
                                     <p>자극 받은 피부를 위한 빠른 진정과 수분 충전<br>#프로바이오틱스 #세라마이드 강화 #수딩젤 #수분젤</p>
                                     <a href="#">구매하기</a>
                                 </li>
-                                <li>
+                                <li class="d2">
                                     <h3><span>02</span>더블 베리어 로션 165ml</h3>
                                     <p>피부를 촉촉하게 가꾸어 주는 순한 보습 처방의 밸런싱 케어 로션<br>#프로바이오틱스 #세라마이드 강화 #유·수분 밸런싱 #수분로션</p>
                                     <a href="#">구매하기</a>
                                 </li>
-                                <li>
+                                <li class="d3">
                                     <h3><span>03</span>더블 베리어 크림 80ml</h3>
                                     <p>초민감한 피부를 위한 피부장벽 강화 크림<br>#프로바이오틱스 #피부장벽크림 #밀착보습 #인생크림</p>
                                     <a href="#">구매하기</a>
@@ -189,17 +188,17 @@
                         </div>
                         <div class="product_list">
                             <ul>
-                                <li class="active"><a href="#">수딩 릴리프 젤</a></li>
-                                <li><a href="#">더블 베리어 로션</a></li>
-                                <li><a href="#">더블 베리어 크림</a></li>
+                                <li class="t1 active"><a href="#">수딩 릴리프 젤</a></li>
+                                <li class="t2"><a href="#">더블 베리어 로션</a></li>
+                                <li class="t3"><a href="#">더블 베리어 크림</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="product2">
                         <ul>
-                            <li><img src="img/mid-main1.png" alt="수딩젤"></li>
-                            <li><img src="img/mid-main2.png" alt="로션"></li>
-                            <li><img src="img/mid-main3.png" alt="크림"></li>
+                            <li class="img1"><img src="img/mid-main1.png" alt="수딩젤"></li>
+                            <li class="img2"><img src="img/mid-main2.png" alt="로션"></li>
+                            <li class="img3"><img src="img/mid-main3.png" alt="크림"></li>
                         </ul>
                     </div>
                 </div>
@@ -217,40 +216,42 @@
                     <a href="#">자세히 보기</a>
                 </div>
                 <div class="new_list">
-                    <ul>
-                        <li>
+                    <div class="swiper mySwiper">                    
+                
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
                             <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product1.png" alt="수딩젤">
                             </div>
                             <p>#빠른 진정 #수분충전</p>
                             <h1>큐어코드 수딩 릴리프 젤</h1>
-                        </li>
-                        <li>
+                        </div>
+                        <div class="swiper-slide">
                             <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product2.png" alt="로션">
                             </div>
                             <p>#유수분 밸런싱</p>
                             <h1>큐어코드 더블 베리어 로션</h1>
-                        </li>
-                        <li>
+                        </div>
+                        <div class="swiper-slide">
                             <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product3.png" alt="크림">
                             </div>
                             <p>#이중보습 #세라마이드 강화</p>
                             <h1>큐어코드 더블 베리어 크림</h1>
-                        </li>
-                        <li>
+                        </div>
+                        <div class="swiper-slide">
                             <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product4.png" alt="오인트먼트">
                             </div>
                             <p>#연고크림 #집중케어</p>
                             <h1>큐어코드 인텐시브 케어 오인트먼트</h1>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
