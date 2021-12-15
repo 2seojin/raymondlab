@@ -1,4 +1,5 @@
 
+/* 웹폰트 연결 - 눈누*/
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -34,14 +35,17 @@
 li {list-style: none;}
 a {text-decoration: none; display: block; color: #212121; font-family: 'Pretendard-Regular';}
 body {font-family: 'Pretendard-Regular';}
+/*시맨틱 태그 선택자*/
 header, section, footer {
     width: 100%;
     float: left;
 }
+/*header, section, footer 안의 직속 자식 객체, 항상 브라우저의 가운데 정렬*/
 .box {
     width: 1200px;
     margin: 0 auto;
 }
+/*이미지 크기는 부모 크기에 맞춤-상대크기(%)*/
 img { width: 100%; }
 /*헤더*/
 header {
@@ -49,24 +53,26 @@ header {
     height: 90px;
     top: 0;
     left: 0;
-    background-color: #fff;
-    z-index: 40;
+    background-color: #fff;  /*transparent;배경 투명*/
+    z-index: 40;         /*section보다 위에 배치*/
 }
+/*화면이 아래로 내려가면 header이 배경색이 흰색으로 변함(제이쿼리)*/
 header.active {
     background-color:#fff;
-    box-shadow:0 5px #ccc;
+    box-shadow:0 5px #ccc; /*그림자*/
 }
 /*로고*/
 header .box .logo {
     width: 200px;
     float: left;
-    margin: 26px 0;
+    margin: 26px 0; /*위 아래 여백: 10픽셀씩*/
 }
 /*네비게이션*/
 header .box nav {
-    float: left;
-    margin-left: 200px;
-    margin-top: 28px;
+    float: left;    /*로고 옆에 배치*/
+    margin-left: 200px;     /*로고와의 거리*/
+    margin-top: 28px;       /*위쪽 여백*/
+    /*서브메뉴배경보다 위에 있어야함*/
     position: relative;
     z-index: 60;
 }
@@ -86,13 +92,14 @@ header .box nav > ul > li:hover > a {
 header .box nav .sub {
     height: 0;
     transition: all 0.5s;
-    overflow: hidden;
+    overflow: hidden; /*영역에서 벗어난 컨텐츠 숨김*/
 }
 header .box nav .sub li a {
     text-align: center;
     padding:10px;
     font-size: 16px;
 }
+/*첫번째 서브메뉴와 위쪽 여백 늘리기*/
 header .box nav .sub li:first-child a {
     padding-top: 70px;
 }
@@ -100,19 +107,20 @@ header .box nav .sub li a:hover {
     color:#122f5d;
     font-weight: bold;
 }
+/*주메뉴에 마우스 오버했을 때 서브메뉴 나옴*/
 header .box nav:hover .sub {
-    height: 320px;
+    height: 320px;      /*높이가 0에서 200px로 0.5초동안 변함*/
 }
 /*서브메뉴 배경*/
 header .sub_bg {
     width: 100%;
     height: 300px;
     background-color: #f7f7f7;
-    position: absolute;
-    top: 90px;
+    position: absolute;     /*서브메뉴와 겹침*/
+    top: 90px;      /*위치설정*/
     left:0;
     z-index: 50;
-    display: none;
+    display: none;  /*숨김*/
 }
 /*로그인 회원가입*/
 header .box .top_menu {
@@ -129,36 +137,87 @@ header .box .top_menu ul li {
     width: 100%;
     height: 960px;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;   /*no-배경 반복하지않음*/
     background-position: center;
 }
 .s1 photo {
     width: 100%;
     height: 960px;
-    position: relative; 
+    position: relative; /*자식객체 li들이 겹쳐질 때 .photo를 기준으로 위치설정*/
 }
 .s1 .photo ul li {
-    position: absolute; 
+    position: absolute;     /*사진끼리 겹침*/
     width: 100%;
     height: 960px;
 }
+/*메인비주얼의 첫번째 이미지가 보이도록 설정하기*/
 .s1 .photo ul li {
     display: none;
 }
 .s1 .photo ul li:first-child {
     display: block;
 }
+/*메인 비주얼 왼쪽의 bar*/
+/* .s1 .bar {
+    width: 120px;
+    height: 952px;
+    background-color: #25406a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;        /*좌우 가운데 정렬*/
+    align-items: center;}            /*상하 가운데 정렬*/
 
+.s1 .bar h3 {
+    font-size: 30px;
+    transform: rotate(90deg);
+}
+/*메인비주얼의 설명과 버튼*/
 .s1 .des_box {
     width: 1200px;
     top:150px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+     /*position:absolute 일 때 좌우 가운데 정렬 공식*/
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
 }
 .s1 .des_box .des {
     height:500px;
 }
+/* .s1 .des_box .des ul li {
+    position: absolute;     /*li 겹침*/
+}
+/* .s1 .des_box .des h2 {
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 50px;
+    letter-spacing: 8px;
+}
+.s1 .des_box .des h1 {
+    font-size: 80px;
+    margin-top: 30px;
+    margin-bottom: 40px;    
+    font-weight: normal;
+    font-family: 'S-CoreDream-3Light';
+}
+.s1 .des_box .des p {
+    color:#ccc
+} */ 
+/*자세히보기 버튼*/
+/*.s1 .des_box .des a    {
+    width: 120px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid#ccc;
+    text-align: center;
+    margin: 30px 0;
+}*/
+/* .s1 .des_box .des a:hover {
+    background-color: #efefef;
+} */
 .s1 .des_box .number {
     margin-top: 20px;
 }
@@ -168,15 +227,16 @@ header .box .top_menu ul li {
 }
 .s1 .des_box .number .num ul li {
     float: left; 
-    padding:100px 50px 10px 10px;
+    padding:100px 50px 10px 10px;   /*위-오른쪽-아래-왼쪽*/
 }
 .s1 .des_box .number .num ul li a {
     font-weight: bold;
     letter-spacing: 2px;
 }
+/*number가 활성화되면 나타나는 밑줄*/
 .s1 .des_box .number .num ul li a.active:after {
     content: "";
-    display: block;
+    display: block;     /*인라인요소 -> 블럭요소*/
     width: 100%;
     height: 3px;
     margin-top: 5px;
@@ -205,17 +265,19 @@ header .box .top_menu ul li {
     background-image: url(../img/play.png);
 }
 /* scroll */
+/* 스크롤 버튼에서 동그라미 상하운동 애니메이션 */
+/* keyframes라는 css 명령어 사용, ani는 애니메이션 이름 */
 @keyframes ani {
     0% {
         margin-top:10px;
-        opacity: 1;     
+        opacity: 1;      /*불투명*/
     }
     40%{
         margin-top:20px;
         opacity: 1;
     }
     60% {        
-        opacity: 0;      
+        opacity: 0;       /*투명*/
     }
     100% {
         opacity: 0;
@@ -223,10 +285,10 @@ header .box .top_menu ul li {
 }
 .s1 .scroll {
     width:80px;
-    position:absolute;      
+    position:absolute;       /*.photo와 겹침*/
     left:50%;
     transform:translateX(-50%);
-    bottom:20px;    
+    bottom:20px;    /*아래에서 60픽셀 떨어져서 배치*/
     color:#000;
     font-size:13px;
     text-align:center;
@@ -236,7 +298,7 @@ header .box .top_menu ul li {
     height:36px;
     border-radius:20px;
     border:1px solid #000;
-    margin:0 auto;   
+    margin:0 auto;   /*가운데 정렬*/
     margin-top:5px;
 }
 .s1 .scroll .scroll_btn .circle {
@@ -246,7 +308,7 @@ header .box .top_menu ul li {
     border-radius:50%;
     margin:0 auto;
     margin-top: 20px;
-    animation:ani 2s infinite;
+    animation:ani 2s infinite; /*@keyframes에서 지정한 애니메이션을 실행하는 명령어, 2초동안 실행, infinite는 반복하라는 명령임*/
 }
 .s2 {
     height: 960px;
@@ -287,7 +349,7 @@ header .box .top_menu ul li {
 }
 /*상품 라인(PRODUCT)*/
 .s3 {
-    position: relative;        
+    position: relative;         /*자식객체 .product2의 위치를 설정할 때 기준이 .s3(부모)가 되도록 설정*/
     height: 960px;
 }
 .s3 .area {
@@ -319,7 +381,7 @@ header .box .top_menu ul li {
 .s3 .product1 .product_title .product_des {
     margin-left: 200px;
     padding-top: 50px;
-    float: left;               
+    float: left;                /*product_list와 나란히 정렬*/
 }
 .s3 .product1 .product_title .product_des ul li h3 {
     color: #fff;
@@ -350,16 +412,19 @@ header .box .top_menu ul li {
 .s3 .product1 .product_title .product_des ul li a:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
+/*모든 proudct_des ul li 안 보임*/
 .s3 .product1 .product_title .product_des ul li {
     display: none;
     position: absolute;
 }
+/*모든 proudct_des ul li만 보임*/
 .s3 .product1 .product_title .product_des ul li:first-child {
     display: block;
 }
 /*product_list*/
+/*모든 proudct_des ul li 안 보임*/
 .s3 .product1 .product_title .product_list {
-    float: left;            
+    float: left;            /*.product_des와 나란히 정렬*/
     margin-top: 200px;
     margin-left: 480px;
 }
@@ -385,15 +450,16 @@ header .box .top_menu ul li {
 .s3 .product2 {
     width:840px;
     height:630px;
-    position:absolute;  
+    position:absolute;    /*product1과 겹침*/
     background-color: #ccc;
     top:100px;
     left:46.5%;
 }
 .s3 .product2 ul li {
-    position: absolute;     
-    display:none;    
+    position: absolute;     /*이미지 겹침*/
+    display:none;      /*안보임*/
 }
+/* 첫번째 이미지만 보임 */
 .s3 .product2 ul li:first-child {
     display: block;
 }
@@ -419,8 +485,8 @@ header .box .top_menu ul li {
 }
 .s4 .new_des .new_title {
     width: 100%;
-    margin-bottom: 20px;    
-    float: left;            
+    margin-bottom: 20px;    /*p와의 간격 20픽셀*/
+    float: left;            /*new_title과 형제객체인 p영역 구분*/
 }
 .s4 .new_des .new_title h1 span {
     font-size: 16px;
@@ -437,6 +503,7 @@ header .box .top_menu ul li {
     line-height: 20px;
     letter-spacing: 0.5px;
 }
+/*자세히 보기 버튼*/
 .s4 .new_des a {
     width: 152px;
     height: 40px;
@@ -453,13 +520,13 @@ header .box .top_menu ul li {
 }
 .s4 .new_list {
     width: 100%;
-    position: absolute;    
+    position: absolute;     /*new_title과 겹침*/
     left: 35px;
     top: 460px;
 }
 .s4 .new_list div div {
     height: 500px;
-    position: relative;     
+    position: relative;     /*자식객체 p태그의 위치 잡을 때 li가 기준이 되도록 설정*/
 }
 .s4 .new_list div div p {
     position: absolute;
@@ -467,7 +534,7 @@ header .box .top_menu ul li {
     width: 95%;
     padding: 10px 10px 1px ;
     text-align: center;
-    white-space: nowrap;    
+    white-space: nowrap;    /*글자 줄바꿈*/
     background-color: #96969675;
     top: 324px;
     color: #fff;
@@ -479,7 +546,7 @@ header .box .top_menu ul li {
     width: 95%;
     padding: 3px 10px 13px ;
     text-align: center;
-    white-space: nowrap;  
+    white-space: nowrap;    /*글자 줄바꿈*/
     background-color: #96969675;
     top: 351px;
     color: #fff;
