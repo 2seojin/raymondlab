@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>닥터 레이몬드 랩</title>
+    <!--파비콘-->
     <link href="img/favicon.png" type="image/x-icon" rel="shortcut icon">
     <!--외부 css연결-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -35,10 +36,13 @@
                     <img src="img/hd-logo.png" alt="로고">
                 </a>
             </div>
+            <!--내비게이션(2차원 메뉴)-->
             <nav>
                 <ul>
                     <li>
+                        <!--주메뉴-->
                         <a href="#">PRODUCT</a>
+                        <!--서브메뉴-->
                         <ul class="sub">
                             <li><a href="#">전체제품</a></li>
                             <li><a href="#">베스트</a></li>
@@ -47,25 +51,30 @@
                             <li><a href="#">아이케어</a></li>
                             <li><a href="#">브랜드</a></li>
                         </ul>
-                    </li>
+                    </li> <!--전제품-->
                     <li>
+                        <!--주메뉴-->
                         <a href="#">BRAND</a>
+                        <!--서브메뉴-->
                         <ul class="sub">
                             <li><a href="#">큐어코드</a></li>
                             <li><a href="#">라스텔라</a></li>
                         </ul>
-                    </li>
+                    </li> <!--브랜드-->
                     <li>
+                        <!--주메뉴-->
                         <a href="#">COMPANY</a>
-
+                        <!--서브메뉴-->
                         <ul class="sub">
                             <li><a href="#">About</a></li>
                             <li><a href="#">Technology</a></li>
                             <li><a href="#">History</a></li>
                         </ul>
-                    </li>
+                    </li> <!--회사소개-->
+
                 </ul>
             </nav>
+            <!--검색 등 아이콘-->
             <div class="top_menu">
                 <ul>
                     <li><a href="#"><img src="img/search.png" alt="search"></a></li>
@@ -73,10 +82,12 @@
                     <li><a href="#"><img src="img/cart.png" alt="cart"></a></li>
                 </ul>
             </div>
-          </div>
+          </div> <!--box-->
+          <!--서브메뉴 배경은 .box의 형제객체로 코딩, css에선 부모나 부모의 형제를 제어하는 선택자가 없기에 제이쿼리로 제어해야함-->
           <div class="sub_bg"></div>
         </header>
         <section class="s1">
+            <!--메인비주얼의 이미지 영역(3개)-->
             <div class="photo">
                 <ul>
                     <li><img src="img/main01.png" alt="큐어코드"></li>
@@ -84,6 +95,17 @@
                     <li><img src="img/main03.png" alt="뉴로마이드"></li>
                 </ul>
             </div>
+            <!--화면 왼쪽의 세로 바-->
+            <!-- <div class="bar">
+                <h3>DR.RAYMOND LAB.</h3>
+            </div> -->
+            <!--설명과 번호와 play, pause버튼 영역-->
+            <div class="des_box">
+                <!-- <div class="des">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </div> -->
                 <div class="number">
                     <div class="num">
                         <ul>
@@ -100,6 +122,7 @@
                     </div>
                 </div>
             </div>
+            <!--scroll-->
             <div class="scroll">
                 <p>SCROLL</p>
                 <div class="scroll_btn">
@@ -179,7 +202,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> <!--area-->
         </section>
         <section class="s4">
             <div class="area">
@@ -197,6 +220,7 @@
                 
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
+                            <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product1.png" alt="수딩젤">
                             </div>
@@ -204,6 +228,7 @@
                             <h1>큐어코드 수딩 릴리프 젤</h1>
                         </div>
                         <div class="swiper-slide">
+                            <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product2.png" alt="로션">
                             </div>
@@ -211,6 +236,7 @@
                             <h1>큐어코드 더블 베리어 로션</h1>
                         </div>
                         <div class="swiper-slide">
+                            <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product3.png" alt="크림">
                             </div>
@@ -218,6 +244,7 @@
                             <h1>큐어코드 더블 베리어 크림</h1>
                         </div>
                         <div class="swiper-slide">
+                            <!-- 이미지 -->
                             <div class="new_img">
                                 <img src="img/product4.png" alt="오인트먼트">
                             </div>
@@ -267,7 +294,8 @@
                 </div> 
             </div>
         </section>
-        <footer>            
+        <footer>
+            
             <div class="top">
                 <div class="box">
                     <div class="home">
